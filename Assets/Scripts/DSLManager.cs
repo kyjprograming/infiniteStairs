@@ -55,12 +55,17 @@ public class DSLManager : MonoBehaviour {
     public Sprite[] characterSprite;
     public Image[] rankCharacterImg;
 
+    private void GetV()
+    {
+        gameManager.SettingBtnInit();
+    }
+
     private void Awake() {
         //Store data initially
         if (!File.Exists(Application.persistentDataPath + "/Characters.json")) {
             characters.Add(new Character("BusinessMan", "회사원", 0, true, true));
             characters.Add(new Character("Rapper", "래퍼", 500, false, false));
-            characters.Add(new Character("Secretary", "비서", 500, false, false));
+            characters.Add(new Character("Secretary", "비서", 1000, false, false));
             characters.Add(new Character("Boxer", "복서", 1000, false, false));
             characters.Add(new Character("CheerLeader", "치어리더", 1000, false, false));
             characters.Add(new Character("Sheriff", "보안관", 2000, false, false));
@@ -79,7 +84,6 @@ public class DSLManager : MonoBehaviour {
         DataLoad();
         LoadMoney(GetMoney());
         LoadRanking();
-        gameManager.SettingBtnInit();
         gameManager.SoundInit();
         gameManager.SettingOnOff("BgmBtn");
         gameManager.SettingOnOff("SoundBtn");
